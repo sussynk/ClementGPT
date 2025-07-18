@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - ClementGPT</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <button class="new-chat-button" id="new-chat-btn">
+            &#x21bb; Restart Chat
+          </button>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About The Team</a>
+          <a href="contact.html">Contact Us</a>
+        </nav>
+        <div class="sidebar-footer">
+          <div class="profile-section">
+            <span class="profile-name"></span>
+          </div>
+          <a href="#" class="logout-button" title="Log Out">
+            <img
+              src="assets/logout.svg"
+              alt="Log Out"
+              width="24"
+              height="24"
+              style="display:inline-block;vertical-align:middle;filter:invert(38%) sepia(99%) saturate(749%) hue-rotate(88deg) brightness(102%) contrast(101%);"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="main-content">
+        <div id="contact-view" class="view active-view">
+          <header class="chat-header">
+            <button class="menu-toggle-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+              </svg>
+            </button>
+            <h1>Contact Us</h1>
+            <nav class="header-nav">
+              <a href="index.html">Home</a>
+              <a href="about.html">About The Team</a>
+              <a href="contact.html">Contact Us</a>
+            </nav>
+          </header>
+          <div class="page-content">
+            <p class="page-subtitle">
+              We'd love to hear from you! Send us a message and we'll get back
+              to you as soon as possible.
+            </p>
+            <form id="contact-form" class="contact-form-container">
+              <div class="input-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required />
+                <div class="error-message"></div>
+              </div>
+              <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required />
+                <div class="error-message"></div>
+              </div>
+              <div class="input-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" required></textarea>
+                <div class="error-message"></div>
+              </div>
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu-backdrop"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
