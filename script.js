@@ -84,10 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("loggedInUser", storedUser.username);
         window.location.href = "index.html";
       } else {
-        setError(
-          document.getElementById("login-email"),
-          "Invalid email or password."
-        );
+        setError(document.getElementById("login-email"), "Invalid email or password.");
         setError(document.getElementById("login-password"), "");
       }
     });
@@ -201,18 +198,47 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // --- Improved Inline Error Handling ---
+
+  // Show and clear errors as user types or changes any field (input or textarea)
+  document.querySelectorAll('.input-group input, .input-group textarea').forEach((input) => {
+    input.addEventListener('input', () => {
+      clearError(input);
+    });
+    input.addEventListener('blur', () => {
+      // Optionally re-validate on blur for instant feedback
+      if (input.form && input.form.id === "login-form") {
+        validateLoginForm();
+      }
+      if (input.form && input.form.id === "signup-form") {
+        validateSignupForm();
+      }
+      if (input.form && input.form.id === "contact-form") {
+        validateContactForm();
+      }
+    });
+  });
+
   // --- Form Validation Helpers (used by multiple pages) ---
   function setError(element, message) {
-    const inputGroup = element.parentElement;
+    const inputGroup = element.closest('.input-group');
+    if (!inputGroup) return;
     const errorDisplay = inputGroup.querySelector(".error-message");
-    errorDisplay.innerText = message;
-    element.classList.add("invalid");
+    if (errorDisplay) {
+      errorDisplay.innerText = message;
+      errorDisplay.style.display = message ? "block" : "none";
+    }
+    element.classList.toggle("invalid", !!message);
   }
 
   function clearError(element) {
-    const inputGroup = element.parentElement;
+    const inputGroup = element.closest('.input-group');
+    if (!inputGroup) return;
     const errorDisplay = inputGroup.querySelector(".error-message");
-    errorDisplay.innerText = "";
+    if (errorDisplay) {
+      errorDisplay.innerText = "";
+      errorDisplay.style.display = "none";
+    }
     element.classList.remove("invalid");
   }
 
@@ -221,7 +247,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("login-email");
     const password = document.getElementById("login-password");
 
-    [email, password].forEach((el) => clearError(el));
+    clearError(email);
+    clearError(password);
 
     if (!email.value) {
       setError(email, "Email is required.");
@@ -240,7 +267,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("signup-email");
     const password = document.getElementById("signup-password");
 
-    [username, email, password].forEach((el) => clearError(el));
+    clearError(username);
+    clearError(email);
+    clearError(password);
 
     if (!username.value) {
       setError(username, "Username is required.");
@@ -266,7 +295,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("email");
     const message = document.getElementById("message");
 
-    [name, email, message].forEach((el) => clearError(el));
+    clearError(name);
+    clearError(email);
+    clearError(message);
 
     if (!name.value) {
       setError(name, "Name is required.");
