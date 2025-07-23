@@ -247,6 +247,7 @@ body { font-family: 'Roboto', sans-serif; background-color: #000000; color: #00f
     color: #00cc00;
 }
 
+
 .contact-form-container .input-group input,
 .contact-form-container .input-group textarea {
     width: 100%;
@@ -261,6 +262,7 @@ body { font-family: 'Roboto', sans-serif; background-color: #000000; color: #00f
     box-sizing: border-box;
 }
 
+.contact-form-container .input-group input:focus,
 .contact-form-container .input-group textarea:focus {
     outline: none;
     border-color: #00ff00;
