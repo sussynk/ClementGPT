@@ -299,21 +299,37 @@ document.addEventListener("DOMContentLoaded", () => {
     clearError(email);
     clearError(message);
 
-    if (!name.value) {
+    // Name: only letters and spaces
+    const namePattern = /^[A-Za-z\s]+$/;
+    if (!name.value.trim()) {
       setError(name, "Name is required.");
       isValid = false;
+    } else if (!namePattern.test(name.value.trim())) {
+      setError(name, "Name must not contain numbers or special characters.");
+      isValid = false;
     }
-    if (!email.value) {
+
+    // Email: must contain '@'
+    if (!email.value.trim()) {
       setError(email, "Email is required.");
       isValid = false;
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-      setError(email, "Please enter a valid email address.");
+    } else if (!email.value.includes('@')) {
+      setError(email, "Email must contain '@' to be valid.");
       isValid = false;
+    } else {
+      // Full pattern check for valid email
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email.value.trim())) {
+        setError(email, "Enter a valid email address.");
+        isValid = false;
+      }
     }
-    if (!message.value) {
+
+    if (!message.value.trim()) {
       setError(message, "Message is required.");
       isValid = false;
     }
+
     return isValid;
   }
 });
