@@ -140,6 +140,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (messageForm) {
       messageForm.addEventListener("submit", (event) => {
+        // Force login check
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+          event.preventDefault();
+          alert("Please log in to send a message.");
+          window.location.href = "auth.html";
+          return;
+        }
         event.preventDefault();
         const userMessage = messageInput.value.trim();
         if (userMessage) {
