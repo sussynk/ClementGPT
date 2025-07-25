@@ -61,10 +61,20 @@ body {
   cursor: pointer;
   font-size: 0.9em;
   transition: background-color 0.2s ease;
+  /* ADDED: Flex properties for icon alignment */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
 }
 .sidebar .new-chat:hover {
   background-color: #003300;
 }
+/* ADDED: Style for the restart icon */
+.sidebar .new-chat img {
+  width: 16px;
+  height: 16px;
+}
+
 
 .sidebar-nav {
   margin-top: 20px;
@@ -143,16 +153,23 @@ body {
 .logout-btn {
   background: none;
   border: none;
-  color: #009900;
   cursor: pointer;
   padding: 5px;
   border-radius: 8px;
   transition: all 0.2s ease;
+  display: flex; /* ADDED for centering */
+  align-items: center; /* ADDED for centering */
+  justify-content: center; /* ADDED for centering */
 }
 .logout-btn:hover {
   background-color: #003300;
-  color: #00ff00;
 }
+/* ADDED: Style for logout icon */
+.logout-btn img {
+    width: 20px;
+    height: 20px;
+}
+
 
 .main {
   flex-grow: 1;
@@ -298,6 +315,12 @@ body {
   transition: background-color 0.2s ease;
   flex-shrink: 0;
 }
+/* ADDED: Style for send icon */
+.chat-input button img {
+    width: 20px;
+    height: 20px;
+}
+
 
 /* --- 4.2. GENERIC CONTENT PAGES (ABOUT, CONTACT) --- */
 .page-content {
@@ -495,16 +518,18 @@ body {
   display: none; /* Hidden on desktop */
   background: none;
   border: none;
-  color: #00ff00;
   cursor: pointer;
   padding: 0;
   margin-right: 15px;
   z-index: 1001;
+  display: flex; /* ADDED for centering */
+  align-items: center; /* ADDED for centering */
+  justify-content: center; /* ADDED for centering */
 }
-.menu-toggle svg {
+/* ADDED: Style for menu icon */
+.menu-toggle img {
   width: 24px;
   height: 24px;
-  fill: currentColor;
 }
 
 .mobile-menu-overlay {
@@ -534,7 +559,7 @@ body {
     transform: translateX(0);
   }
   .menu-toggle {
-    display: block;
+    display: flex;
   }
   .header {
     justify-content: flex-start;

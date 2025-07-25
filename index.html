@@ -20,16 +20,18 @@
           <div class="profile">
             <!-- Dynamically updated by script.js -->
           </div>
+          <!-- MODIFIED: Replaced inline SVG with an img tag -->
           <button class="logout-btn" title="Log Out">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <img src="assets/logout.svg" alt="Logout" />
           </button>
         </footer>
       </aside>
 
       <main class="main">
         <header class="header">
+          <!-- MODIFIED: Replaced inline SVG with an img tag -->
           <button class="menu-toggle">
-            <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+            <img src="assets/menu-icon.svg" alt="Menu" />
           </button>
           <h1>ClementGPT</h1>
           <nav class="header-nav">
@@ -48,8 +50,9 @@
         <div class="chat-input-container">
           <form id="chat-form" class="chat-input">
             <textarea id="message-input" placeholder="Message ClementGPT..."></textarea>
+            <!-- MODIFIED: Replaced inline SVG with an img tag -->
             <button type="submit" title="Send Message">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+              <img src="assets/send-icon.svg" alt="Send" />
             </button>
           </form>
         </div>
