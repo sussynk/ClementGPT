@@ -4,83 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ClementGPT</title>
-    <link rel="stylesheet" href="style.css" /> 
+    <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="app-container">
+    <div class="app">
       <aside class="sidebar">
-        <div class="sidebar-header">
-          <button class="new-chat-button" id="new-chat-btn">
-            &#x21bb; Restart Chat
-          </button>
-        </div>
+        <button class="new-chat">&#x21bb; <span>Restart Chat</span></button>
         <nav class="sidebar-nav">
-          <a href="index.html">Home</a>
+          <a href="index.html" class="active">Home</a>
           <a href="about.html">About The Team</a>
           <a href="contact.html">Contact Us</a>
         </nav>
-        <div class="sidebar-footer">
-          <div class="profile-section">
-            <!-- Default Profile, will change with JS during user login/sign up -->
-            <div class="profile-avatar">C</div>
-            <span class="profile-name">Clement</span>
-          </div>
-          <a href="#" class="logout-button" title="Log Out">
-            <img
-              src="assets/logout.svg"
-              alt="Log Out"
-              width="24"
-              height="24"
-              style="display:inline-block;vertical-align:middle;filter:invert(38%) sepia(99%) saturate(749%) hue-rotate(88deg) brightness(102%) contrast(101%);"
-            />
-          </a>
-        </div>
+        <footer class="sidebar-footer">
+          <div class="profile"></div>
+          <button class="logout-btn" title="Log Out">&#x23fb;</button>
+        </footer>
       </aside>
 
-      <div class="main-content">
-        <header class="chat-header">
-          <button class="menu-toggle-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-            </svg>
-          </button>
+      <main class="main">
+        <header class="header">
+          <button class="menu-toggle">&#x2630;</button>
           <h1>ClementGPT</h1>
           <nav class="header-nav">
-            <a href="index.html">Home</a>
+            <a href="index.html" class="active">Home</a>
             <a href="about.html">About The Team</a>
             <a href="contact.html">Contact Us</a>
           </nav>
         </header>
-        <div id="chat-view" class="view active-view">
-          <div id="message-area" class="message-area">
-            <div class="message bot-message">
-              <p>Hello! I'm ClementGPT. How can I help you today?</p>
-            </div>
-          </div>
-          <div class="chat-input-area-container">
-            <footer class="chat-input-area">
-              <form id="message-form" class="message-form">
-                <textarea
-                  id="message-input"
-                  placeholder="Message ClementGPT..."
-                  required
-                ></textarea>
-                <button type="submit" title="Send Message">
-                  <img
-                    src="assets/submit.svg"
-                    alt="Send"
-                    width="24"
-                    height="24"
-                    style="display:inline-block;vertical-align:middle;filter:invert(38%) sepia(99%) saturate(749%) hue-rotate(88deg) brightness(102%) contrast(101%);"
-                  />
-                </button>
-              </form>
-            </footer>
+
+        <div id="chat-area" class="chat-area">
+          <div class="message bot-message">
+            <p>Hello! I'm ClementGPT. How can I help you today?</p>
           </div>
         </div>
-      </div>
+
+        <div class="chat-input-container">
+          <form id="chat-form" class="chat-input">
+            <textarea
+              id="message-input"
+              placeholder="Message ClementGPT..."
+            ></textarea>
+            <button type="submit" title="Send Message">&#x27a4;</button>
+          </form>
+        </div>
+      </main>
     </div>
-    <div id="mobile-menu-backdrop"></div>
+    <div class="mobile-menu-overlay"></div>
     <script src="script.js"></script>
   </body>
 </html>
