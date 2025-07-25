@@ -7,85 +7,70 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="app-container">
-      <div class="sidebar">
-        <div class="sidebar-header">
-          <button class="new-chat-button" id="new-chat-btn">
-            &#x21bb; Restart Chat
-          </button>
-        </div>
+    <div class="app">
+      <aside class="sidebar">
+        <button class="new-chat" onclick="window.location.href='index.html'">&#x21bb; Restart Chat</button>
         <nav class="sidebar-nav">
           <a href="index.html">Home</a>
-          <a href="about.html">About The Team</a>
+          <a href="about.html" class="active">About The Team</a>
           <a href="contact.html">Contact Us</a>
         </nav>
-        <div class="sidebar-footer">
-          <div class="profile-section">
-            <span class="profile-name"></span>
+        <footer class="sidebar-footer">
+          <div class="profile">
+            <!-- Dynamically updated by script.js -->
           </div>
-          <a href="#" class="logout-button" title="Log Out">
-            <img
-              src="assets/logout.svg"
-              alt="Log Out"
-              width="24"
-              height="24"
-              style="display:inline-block;vertical-align:middle;filter:invert(38%) sepia(99%) saturate(749%) hue-rotate(88deg) brightness(102%) contrast(101%);"
-            />
-          </a>
-        </div>
-      </div>
-      <div class="main-content">
-        <div id="about-view" class="view active-view">
-          <header class="chat-header">
-            <button class="menu-toggle-btn">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-              </svg>
-            </button>
-            <h1>About The Team</h1>
-            <nav class="header-nav">
-              <a href="index.html">Home</a>
-              <a href="about.html">About The Team</a>
-              <a href="contact.html">Contact Us</a>
-            </nav>
-          </header>
-          <div class="page-content">
-            <p class="page-subtitle">
-              Meet the amazing team behind ClementGPT.
-            </p>
-            <div class="team-grid">
-              <!-- Team Member 1 -->
-              <div class="team-member">
-                <img src="assets/photo/clement.webp" alt="Clement Chong" class="team-member-photo" width="100" height="100" border-radius="50%" />
-                <h3>Clement Chong</h3>
-                <p>Group Leader</p>
-              </div>
-              <!-- Team Member 2 -->
-              <div class="team-member">
-                <h3>Chen Zhi Yong</h3>
-                <p>Group Co-Leader</p>
-              </div>
-              <!-- Team Member 3 -->
-              <div class="team-member">
-                <h3>Hon Yen Yang</h3>
-                <p>Group Member</p>
-              </div>
-              <!-- Team Member 4 -->
-              <div class="team-member">
-                <h3>Praaveen</h3>
-                <p>Group Member</p>
-              </div>
-              <!-- Team Member 5 -->
-              <div class="team-member">
-                <h3>Ng Chin Yang</h3>
-                <p>Group Member</p>
-              </div>
+           <button class="logout-btn" title="Log Out">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          </button>
+        </footer>
+      </aside>
+
+      <main class="main">
+        <header class="header">
+          <button class="menu-toggle">
+            <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+          </button>
+          <h1>About The Team</h1>
+          <nav class="header-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About The Team</a>
+            <a href="contact.html">Contact Us</a>
+          </nav>
+        </header>
+
+        <div class="page-content">
+          <p class="page-subtitle">Meet the amazing team behind ClementGPT.</p>
+          <div class="team">
+            <div class="team-member">
+              <img src="assets/photo/clement.webp" alt="Clement Chong" class="team-photo" />
+              <h3>Clement Chong</h3>
+              <p>Group Leader</p>
+            </div>
+            <div class="team-member">
+              <img src="assets/photo/Chen Zhi Yong 23041742.webp" alt="Chen Zhi Yong" class="team-photo" />
+              <h3>Chen Zhi Yong</h3>
+              <p>Group Co-Leader</p>
+            </div>
+            <div class="team-member">
+              <img src="assets/photo/HYY Photo.webp" alt="Hon Yen Yang" class="team-photo" />
+              <h3>Hon Yen Yang</h3>
+              <p>Group Member</p>
+            </div>
+            <div class="team-member">
+              <img src="https://placehold.co/120x120/1a1a1a/00ff00?text=P" alt="Praaveen" class="team-photo" />
+              <h3>Praaveen</h3>
+              <p>Group Member</p>
+            </div>
+            <div class="team-member">
+              <img src="https://placehold.co/120x120/1a1a1a/00ff00?text=NC" alt="Ng Chin Yang" class="team-photo" />
+              <h3>Ng Chin Yang</h3>
+              <p>Group Member</p>
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
-    <div id="mobile-menu-backdrop"></div>
+    <div class="mobile-menu-overlay"></div>
     <script src="script.js"></script>
   </body>
 </html>
