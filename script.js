@@ -216,6 +216,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (userMessage.includes("how are you")) return "I'm just a bot, but I'm doing great! Thanks for asking.";
       if (userMessage.includes("help")) return "You can ask me anything! Try asking about the weather, or just chat with me.";
       if (userMessage.includes("clement")) return "Clement is the leader of the team that created this chatbot.";
+      if (userMessage.includes("time")) {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('en-MY', { hour: '2-digit', minute: '2-digit', hour12: true });
+        return `The current time in Subang Jaya is ${timeString}.`;
+      }
       return "I'm not sure how to respond to that. Can you try asking something else?";
     }
   }
@@ -275,15 +280,43 @@ document.addEventListener("DOMContentLoaded", () => {
     return isValid;
   }
 
+  /**
+   * [MODIFIED] Validates the contact form fields.
+   * Includes regex check for the name field.
+   */
   function validateContact() {
     let isValid = true;
     const name = document.getElementById("name");
     const email = document.getElementById("email");
     const message = document.getElementById("message");
-    if (!name.value.trim()) { isValid = false; setError(name, "Name is required."); }
-    if (!email.value.trim()) { isValid = false; setError(email, "Email is required."); } 
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { isValid = false; setError(email, "Enter a valid email address."); }
-    if (!message.value.trim()) { isValid = false; setError(message, "Message is required."); }
+    
+    // Regex to allow only letters (a-z, A-Z) and spaces.
+    const nameRegex = /^[a-zA-Z\s]+$/;
+
+    // Validate Name: Check if empty, then check pattern.
+    if (!name.value.trim()) {
+      isValid = false;
+      setError(name, "Name is required.");
+    } else if (!nameRegex.test(name.value)) {
+      isValid = false;
+      setError(name, "Name can only contain letters and spaces.");
+    }
+
+    // Validate Email
+    if (!email.value.trim()) {
+      isValid = false;
+      setError(email, "Email is required.");
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      isValid = false;
+      setError(email, "Enter a valid email address.");
+    }
+    
+    // Validate Message
+    if (!message.value.trim()) {
+      isValid = false;
+      setError(message, "Message is required.");
+    }
+    
     return isValid;
   }
 });
