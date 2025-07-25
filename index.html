@@ -4,83 +4,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ClementGPT</title>
-    <link rel="stylesheet" href="style.css" /> 
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="app-container">
+    <div class="app">
       <aside class="sidebar">
-        <div class="sidebar-header">
-          <button class="new-chat-button" id="new-chat-btn">
-            &#x21bb; Restart Chat
-          </button>
-        </div>
+        <button class="new-chat">&#x21bb; Restart Chat</button>
         <nav class="sidebar-nav">
-          <a href="index.html">Home</a>
+          <a href="index.html" class="active">Home</a>
           <a href="about.html">About The Team</a>
           <a href="contact.html">Contact Us</a>
         </nav>
-        <div class="sidebar-footer">
-          <div class="profile-section">
-            <!-- Default Profile, will change with JS during user login/sign up -->
-            <div class="profile-avatar">C</div>
-            <span class="profile-name">Clement</span>
+        <footer class="sidebar-footer">
+          <div class="profile">
+            <!-- Dynamically updated by script.js -->
           </div>
-          <a href="#" class="logout-button" title="Log Out">
-            <img
-              src="assets/logout.svg"
-              alt="Log Out"
-              width="24"
-              height="24"
-              style="display:inline-block;vertical-align:middle;filter:invert(38%) sepia(99%) saturate(749%) hue-rotate(88deg) brightness(102%) contrast(101%);"
-            />
-          </a>
-        </div>
+          <button class="logout-btn" title="Log Out">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          </button>
+        </footer>
       </aside>
 
-      <div class="main-content">
-        <header class="chat-header">
-          <button class="menu-toggle-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-            </svg>
+      <main class="main">
+        <header class="header">
+          <button class="menu-toggle">
+            <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
           </button>
           <h1>ClementGPT</h1>
           <nav class="header-nav">
-            <a href="index.html">Home</a>
+            <a href="index.html" class="active">Home</a>
             <a href="about.html">About The Team</a>
             <a href="contact.html">Contact Us</a>
           </nav>
         </header>
-        <div id="chat-view" class="view active-view">
-          <div id="message-area" class="message-area">
-            <div class="message bot-message">
-              <p>Hello! I'm ClementGPT. How can I help you today?</p>
-            </div>
-          </div>
-          <div class="chat-input-area-container">
-            <footer class="chat-input-area">
-              <form id="message-form" class="message-form">
-                <textarea
-                  id="message-input"
-                  placeholder="Message ClementGPT..."
-                  required
-                ></textarea>
-                <button type="submit" title="Send Message">
-                  <img
-                    src="assets/submit.svg"
-                    alt="Send"
-                    width="24"
-                    height="24"
-                    style="display:inline-block;vertical-align:middle;filter:invert(38%) sepia(99%) saturate(749%) hue-rotate(88deg) brightness(102%) contrast(101%);"
-                  />
-                </button>
-              </form>
-            </footer>
+
+        <div id="chat-area" class="chat-area">
+          <div class="message bot-message">
+            <p>Hello! I'm ClementGPT. How can I help you today?</p>
           </div>
         </div>
-      </div>
+
+        <div class="chat-input-container">
+          <form id="chat-form" class="chat-input">
+            <textarea id="message-input" placeholder="Message ClementGPT..."></textarea>
+            <button type="submit" title="Send Message">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+            </button>
+          </form>
+        </div>
+      </main>
     </div>
-    <div id="mobile-menu-backdrop"></div>
+    <div class="mobile-menu-overlay"></div>
     <script src="script.js"></script>
   </body>
 </html>
