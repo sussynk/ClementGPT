@@ -1,11 +1,10 @@
 body {
-  font-family: sans-serif; /* Use system fonts as required */
+  font-family: sans-serif;
   background-color: #000;
   color: #00ff00;
   margin: 0;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -20,10 +19,6 @@ body {
   background: #006600;
 }
 
-/* ===================================================================
-   2. APP LAYOUT & SIDEBAR
-   - Main containers for the app layout (app, sidebar, main content).
-   =================================================================== */
 .app {
   display: flex;
   width: 100%;
@@ -57,7 +52,6 @@ body {
   cursor: pointer;
   font-size: 0.9em;
   transition: background-color 0.2s ease;
-  /* MODIFIED: Kept flex for alignment of icon and text */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -65,7 +59,6 @@ body {
 .sidebar .new-chat:hover {
   background-color: #003300;
 }
-/* REMOVED: img-specific style */
 
 .sidebar-nav {
   margin-top: 20px;
@@ -148,7 +141,6 @@ body {
   padding: 5px;
   border-radius: 8px;
   transition: all 0.2s ease;
-  /* MODIFIED: Styling for Unicode character */
   color: #009900;
   font-size: 22px;
   line-height: 1;
@@ -157,7 +149,6 @@ body {
   background-color: #003300;
   color: #00ff00;
 }
-/* REMOVED: img-specific style */
 
 .main {
   flex-grow: 1;
@@ -167,10 +158,6 @@ body {
   overflow-y: auto;
 }
 
-/* ===================================================================
-   3. HEADER & NAVIGATION
-   - Styles for the main header and its navigation links.
-   =================================================================== */
 .header {
   padding: 18px;
   background-color: #000;
@@ -192,7 +179,7 @@ body {
 }
 
 .header-nav {
-  display: none; /* Hidden on mobile, shown on desktop */
+  display: none;
   margin-left: auto;
 }
 .header-nav a {
@@ -206,12 +193,6 @@ body {
   background-color: #003300;
 }
 
-/* ===================================================================
-   4. PAGE-SPECIFIC STYLES
-   - Styles for Chat, About, Contact, and Auth pages.
-   =================================================================== */
-
-/* --- 4.1. CHAT PAGE --- */
 .chat-area {
   flex-grow: 1;
   padding: 25px;
@@ -265,7 +246,7 @@ body {
   max-width: 780px;
   margin: 0 auto;
   display: flex;
-  align-items: flex-end; /* Aligns items to the bottom for better look */
+  align-items: flex-end;
   background-color: #1a1a1a;
   border-radius: 12px;
   padding: 8px 12px;
@@ -302,15 +283,11 @@ body {
   margin-left: 10px;
   transition: background-color 0.2s ease;
   flex-shrink: 0;
-  /* MODIFIED: Styling for Unicode character */
   font-size: 24px;
   color: #000;
-  padding-bottom: 4px; /* Minor alignment adjustment */
+  padding-bottom: 4px;
 }
-/* REMOVED: img-specific style */
 
-
-/* --- 4.2. GENERIC CONTENT PAGES (ABOUT, CONTACT) --- */
 .page-content {
   flex-grow: 1;
   padding: 30px;
@@ -328,7 +305,6 @@ body {
   color: #00cc00;
 }
 
-/* --- 4.3. ABOUT PAGE --- */
 .team {
   display: flex;
   flex-wrap: wrap;
@@ -363,7 +339,6 @@ body {
 .team-member h3 { margin: 10px 0 5px 0; color: #00ff00; }
 .team-member p { font-size: 0.9em; color: #00cc00; }
 
-/* --- 4.4. FORMS (CONTACT & AUTH) --- */
 .form-container {
   max-width: 700px;
   margin: 0 auto;
@@ -410,7 +385,7 @@ body {
   font-size: 0.85em;
   margin-top: 5px;
   min-height: 1em;
-  display: none; /* Hidden by default, shown by JS */
+  display: none;
 }
 
 .form-group input.invalid,
@@ -435,7 +410,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* --- 4.5. AUTHENTICATION PAGE --- */
 .auth-page {
   display: flex;
   justify-content: center;
@@ -456,7 +430,6 @@ body {
   overflow: hidden;
 }
 
-/* This panel is hidden on mobile by default */
 .auth-panel {
   display: none;
 }
@@ -496,26 +469,18 @@ body {
 .auth-form.active { display: block; }
 .auth-form h1 { margin: 0 0 30px 0; font-size: 2em; color: #00ff00; text-align: center; }
 
-/* ===================================================================
-   5. RESPONSIVE & MOBILE STYLES
-   - Media queries for mobile-first adjustments.
-   =================================================================== */
-
-/* --- 5.1. MOBILE MENU --- */
 .menu-toggle {
-  display: none; /* Hidden on desktop */
+  display: none;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
   margin-right: 15px;
   z-index: 1001;
-  /* MODIFIED: Styling for Unicode character */
   color: #00ff00;
   font-size: 28px;
   line-height: 1;
 }
-/* REMOVED: img-specific style */
 
 .mobile-menu-overlay {
   display: none;
@@ -534,7 +499,6 @@ body {
   opacity: 1;
 }
 
-/* --- 5.2. MOBILE BREAKPOINT (<= 768px) --- */
 @media (max-width: 768px) {
   .sidebar {
     position: fixed;
@@ -556,8 +520,6 @@ body {
   .form-container { padding: 20px; border: none; background-color: #0a0a0a; }
   .team { flex-direction: column; align-items: center; }
   .team-member { width: 80%; max-width: 300px; }
-  
-  /* Auth page mobile layout */
   .auth-page { padding: 0; }
   .auth-box {
     flex-direction: column;
@@ -574,7 +536,6 @@ body {
   }
 }
 
-/* --- 5.3. DESKTOP BREAKPOINT (>= 769px) --- */
 @media (min-width: 769px) {
   .sidebar-nav {
     display: none;
@@ -587,8 +548,6 @@ body {
     align-items: center;
     gap: 10px;
   }
-  
-  /* Show the decorative panel on desktop */
   .auth-panel {
     display: flex;
     width: 45%;
@@ -602,7 +561,6 @@ body {
   }
   .auth-panel h2 { font-size: 2.5em; margin: 0 0 10px 0; }
   .auth-panel p { font-size: 1.1em; color: #00cc00; }
-
   .auth-forms {
     width: 55%;
     padding: 40px 50px;
