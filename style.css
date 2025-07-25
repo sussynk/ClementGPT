@@ -364,22 +364,6 @@ body { font-family: 'Roboto', sans-serif; background-color: #000000; color: #00f
     border-color: #ff4d4d;
 }
 
-.skip-link {
-    margin-top: 25px;
-}
-
-.skip-link a {
-    color: #00cc00;
-    text-decoration: none;
-    font-size: 0.9em;
-    transition: color 0.2s ease;
-}
-
-.skip-link a:hover {
-    color: #00ff00;
-    text-decoration: underline;
-}
-
 /* --- MOBILE MENU & RESPONSIVENESS --- */
 .menu-toggle-btn {
     display: none; /* Hidden by default */
