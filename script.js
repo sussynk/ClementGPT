@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("loggedInUser", username);
-      
+
       alert("Sign up successful!");
       window.location.href = "index.html";
     });
@@ -71,12 +71,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const password = document.getElementById("login-password").value;
       const storedUser = JSON.parse(localStorage.getItem("user"));
 
-      if (storedUser && storedUser.email === email && storedUser.password === password) {
+      if (
+        storedUser &&
+        storedUser.email === email &&
+        storedUser.password === password
+      ) {
         localStorage.setItem("isLoggedIn", "true");
         localStorage.setItem("loggedInUser", storedUser.username);
         window.location.href = "index.html";
       } else {
-        setError(document.getElementById("login-email"), "Invalid email or password.");
+        setError(
+          document.getElementById("login-email"),
+          "Invalid email or password."
+        );
         setError(document.getElementById("login-password"), "");
       }
     });
@@ -89,7 +96,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (validateContact()) {
         alert("Message sent successfully! (This is a demo)");
         contactForm.reset();
-        document.querySelectorAll('#contact-form .form-group input, #contact-form .form-group textarea').forEach(clearError);
+        document
+          .querySelectorAll(
+            "#contact-form .form-group input, #contact-form .form-group textarea"
+          )
+          .forEach(clearError);
       }
     });
   }
@@ -101,9 +112,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const newChatBtn = document.querySelector(".new-chat");
 
     newChatBtn.addEventListener("click", () => {
-        chatArea.innerHTML = '<div class="message bot-message"><p>Hello! I\'m ClementGPT. How can I help you today?</p></div>';
+      chatArea.innerHTML =
+        '<div class="message bot-message"><p>Hello! I\'m ClementGPT. How can I help you today?</p></div>';
     });
-    
+
     messageInput.addEventListener("input", () => {
       messageInput.style.height = "auto";
       messageInput.style.height = `${messageInput.scrollHeight}px`;
@@ -116,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "auth.html";
         return;
       }
-      
+
       const userMessage = messageInput.value.trim();
       if (userMessage) {
         addMessage("user", userMessage);
@@ -143,20 +155,29 @@ document.addEventListener("DOMContentLoaded", () => {
     function showTypingIndicator() {
       const messageEl = document.createElement("div");
       messageEl.classList.add("message", "bot-message");
-      messageEl.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+      messageEl.innerHTML =
+        '<div class="typing-indicator"><span></span><span></span><span></span></div>';
       chatArea.appendChild(messageEl);
       chatArea.scrollTop = chatArea.scrollHeight;
     }
 
     function getBotResponse(userMessage) {
       userMessage = userMessage.toLowerCase();
-      if (userMessage.includes("hello") || userMessage.includes("hi")) return "Hello there! How can I assist you?";
-      if (userMessage.includes("how are you")) return "I'm just a bot, but I'm doing great! Thanks for asking.";
-      if (userMessage.includes("help")) return "You can ask me anything! Try asking about the weather, or just chat with me.";
-      if (userMessage.includes("clement")) return "Clement is the leader of the team that created this chatbot.";
+      if (userMessage.includes("hello") || userMessage.includes("hi"))
+        return "Hello there! How can I assist you?";
+      if (userMessage.includes("how are you"))
+        return "I'm just a bot, but I'm doing great! Thanks for asking.";
+      if (userMessage.includes("help"))
+        return "You can ask me anything! Try asking about the weather, or just chat with me.";
+      if (userMessage.includes("clement"))
+        return "Clement is the leader of the team that created this chatbot.";
       if (userMessage.includes("time")) {
         const now = new Date();
-        const timeString = now.toLocaleTimeString('en-MY', { hour: '2-digit', minute: '2-digit', hour12: true });
+        const timeString = now.toLocaleTimeString("en-MY", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: true,
+        });
         return `The current time in Subang Jaya is ${timeString}.`;
       }
       return "I'm not sure how to respond to that. Can you try asking something else?";
@@ -175,16 +196,24 @@ document.addEventListener("DOMContentLoaded", () => {
     setError(inputElement, "");
   }
 
-  document.querySelectorAll('.form-group input, .form-group textarea').forEach(input => {
-    input.addEventListener('input', () => clearError(input));
-  });
+  document
+    .querySelectorAll(".form-group input, .form-group textarea")
+    .forEach((input) => {
+      input.addEventListener("input", () => clearError(input));
+    });
 
   function validateLogin() {
     let isValid = true;
     const email = document.getElementById("login-email");
     const password = document.getElementById("login-password");
-    if (!email.value.trim()) { isValid = false; setError(email, "Email is required."); }
-    if (!password.value.trim()) { isValid = false; setError(password, "Password is required."); }
+    if (!email.value.trim()) {
+      isValid = false;
+      setError(email, "Email is required.");
+    }
+    if (!password.value.trim()) {
+      isValid = false;
+      setError(password, "Password is required.");
+    }
     return isValid;
   }
 
@@ -193,10 +222,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const username = document.getElementById("signup-username");
     const email = document.getElementById("signup-email");
     const password = document.getElementById("signup-password");
-    if (!username.value.trim()) { isValid = false; setError(username, "Username is required."); }
-    if (!email.value.trim()) { isValid = false; setError(email, "Email is required."); } 
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { isValid = false; setError(email, "Please enter a valid email address."); }
-    if (!password.value.trim()) { isValid = false; setError(password, "Password is required."); }
+    if (!username.value.trim()) {
+      isValid = false;
+      setError(username, "Username is required.");
+    }
+    if (!email.value.trim()) {
+      isValid = false;
+      setError(email, "Email is required.");
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      isValid = false;
+      setError(email, "Please enter a valid email address.");
+    }
+    if (!password.value.trim()) {
+      isValid = false;
+      setError(password, "Password is required.");
+    }
     return isValid;
   }
 
@@ -205,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const name = document.getElementById("name");
     const email = document.getElementById("email");
     const message = document.getElementById("message");
-    
+
     const nameRegex = /^[a-zA-Z\s]+$/;
 
     if (!name.value.trim()) {
@@ -223,12 +263,12 @@ document.addEventListener("DOMContentLoaded", () => {
       isValid = false;
       setError(email, "Enter a valid email address.");
     }
-    
+
     if (!message.value.trim()) {
       isValid = false;
       setError(message, "Message is required.");
     }
-    
+
     return isValid;
   }
 });

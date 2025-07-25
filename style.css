@@ -228,11 +228,21 @@ body {
   margin: 0 2px;
   animation: bounce 1.4s infinite ease-in-out both;
 }
-.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
-.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+.typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+.typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
 @keyframes bounce {
-  0%, 80%, 100% { transform: scale(0); }
-  40% { transform: scale(1); }
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
 }
 
 .chat-input-container {
@@ -336,8 +346,14 @@ body {
   border: 3px solid #00ff00;
 }
 
-.team-member h3 { margin: 10px 0 5px 0; color: #00ff00; }
-.team-member p { font-size: 0.9em; color: #00cc00; }
+.team-member h3 {
+  margin: 10px 0 5px 0;
+  color: #00ff00;
+}
+.team-member p {
+  font-size: 0.9em;
+  color: #00cc00;
+}
 
 .form-container {
   max-width: 700px;
@@ -465,9 +481,18 @@ body {
   font-weight: bold;
 }
 
-.auth-form { display: none; }
-.auth-form.active { display: block; }
-.auth-form h1 { margin: 0 0 30px 0; font-size: 2em; color: #00ff00; text-align: center; }
+.auth-form {
+  display: none;
+}
+.auth-form.active {
+  display: block;
+}
+.auth-form h1 {
+  margin: 0 0 30px 0;
+  font-size: 2em;
+  color: #00ff00;
+  text-align: center;
+}
 
 .menu-toggle {
   display: none;
@@ -516,11 +541,25 @@ body {
   .header-nav {
     display: none;
   }
-  .page-content { padding: 20px 15px; }
-  .form-container { padding: 20px; border: none; background-color: #0a0a0a; }
-  .team { flex-direction: column; align-items: center; }
-  .team-member { width: 80%; max-width: 300px; }
-  .auth-page { padding: 0; }
+  .page-content {
+    padding: 20px 15px;
+  }
+  .form-container {
+    padding: 20px;
+    border: none;
+    background-color: #0a0a0a;
+  }
+  .team {
+    flex-direction: column;
+    align-items: center;
+  }
+  .team-member {
+    width: 80%;
+    max-width: 300px;
+  }
+  .auth-page {
+    padding: 0;
+  }
   .auth-box {
     flex-direction: column;
     width: 100%;
@@ -559,8 +598,14 @@ body {
     align-items: center;
     text-align: center;
   }
-  .auth-panel h2 { font-size: 2.5em; margin: 0 0 10px 0; }
-  .auth-panel p { font-size: 1.1em; color: #00cc00; }
+  .auth-panel h2 {
+    font-size: 2.5em;
+    margin: 0 0 10px 0;
+  }
+  .auth-panel p {
+    font-size: 1.1em;
+    color: #00cc00;
+  }
   .auth-forms {
     width: 55%;
     padding: 40px 50px;
