@@ -1,7 +1,16 @@
+:root {
+  --primary-color: #00ff00;
+  --secondary-color: #004d00;
+  --background-color: #000;
+  --border-color: #00ff00;
+  --text-color: #00cc00;
+  --error-color: #ff4d4d;
+}
+
 body {
-  font-family: sans-serif;
-  background-color: #000;
-  color: #00ff00;
+  font-family: Roboto;
+  background-color: var(--background-color);
+  color: var(--primary-color);
   margin: 0;
 }
 
@@ -9,10 +18,10 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: var(--background-color);
 }
 ::-webkit-scrollbar-thumb {
-  background: #004d00;
+  background: var(--secondary-color);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -33,7 +42,7 @@ body {
   min-width: 250px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #00ff00;
+  border-right: 1px solid var(--border-color);
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
   height: 100vh;
@@ -45,8 +54,8 @@ body {
   width: 100%;
   padding: 12px;
   background-color: transparent;
-  color: #00ff00;
-  border: 1px solid #00ff00;
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   text-align: left;
   cursor: pointer;
@@ -68,7 +77,7 @@ body {
 }
 
 .sidebar-nav a {
-  color: #00ff00;
+  color: var(--primary-color);
   text-decoration: none;
   padding: 10px 12px;
   border-radius: 8px;
@@ -82,7 +91,7 @@ body {
 
 .sidebar-footer {
   margin-top: auto;
-  border-top: 1px solid #00ff00;
+  border-top: 1px solid var(--border-color);
   padding-top: 15px;
   display: flex;
   align-items: center;
@@ -101,8 +110,8 @@ body {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: #00ff00;
-  color: #000;
+  background-color: var(--primary-color);
+  color: var(--background-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,8 +132,8 @@ body {
   justify-content: center;
   width: 100%;
   padding: 10px;
-  background-color: #00ff00;
-  color: #000;
+  background-color: var(--primary-color);
+  color: var(--background-color);
   border-radius: 8px;
   text-decoration: none;
   font-weight: 500;
@@ -183,7 +192,7 @@ body {
   margin-left: auto;
 }
 .header-nav a {
-  color: #00ff00;
+  color: var(--primary-color);
   text-decoration: none;
   padding: 8px 15px;
   border-radius: 8px;
@@ -208,10 +217,10 @@ body {
   line-height: 1.6;
 }
 .user-message {
-  background-color: #00ff00;
+  background-color: var(--primary-color);
   align-self: flex-end;
   border-bottom-right-radius: 4px;
-  color: #000;
+  color: var(--background-color);
 }
 .bot-message {
   background-color: #1a1a1a;
@@ -260,14 +269,14 @@ body {
   background-color: #1a1a1a;
   border-radius: 12px;
   padding: 8px 12px;
-  border: 1px solid #00ff00;
+  border: 1px solid var(--border-color);
 }
 
 .chat-input textarea {
   flex-grow: 1;
   background: transparent;
   border: none;
-  color: #00ff00;
+  color: var(--primary-color);
   font-size: 1em;
   resize: none;
   height: 28px;
@@ -284,7 +293,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #00ff00;
+  background-color: var(--background-color);
   border: none;
   width: 40px;
   height: 40px;
@@ -312,7 +321,7 @@ body {
   max-width: 700px;
   margin: 0 auto 40px auto;
   text-align: center;
-  color: #00cc00;
+  color: var(--text-color);
 }
 
 .team {
