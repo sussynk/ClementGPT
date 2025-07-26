@@ -613,7 +613,7 @@ body {
   }
   .auth-panel p {
     font-size: 1.1em;
-    color: #00cc00;
+    color: var(--text-color);
   }
   .auth-forms {
     width: 55%;
