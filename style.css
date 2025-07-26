@@ -20,13 +20,16 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--background-color);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--secondary-color);
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #006600;
 }
@@ -71,6 +74,7 @@ body {
   align-items: center;
   gap: 10px;
 }
+
 .sidebar .new-chat:hover {
   background-color: #003300;
 }
@@ -90,6 +94,7 @@ body {
   font-size: 0.95em;
   transition: background-color 0.2s ease;
 }
+
 .sidebar-nav a:hover,
 .sidebar-nav a.active {
   background-color: #003300;
@@ -148,6 +153,7 @@ body {
   font-weight: 500;
   transition: background-color 0.2s ease;
 }
+
 .login-btn:hover {
   background-color: var(--text-color);
 }
@@ -163,6 +169,7 @@ body {
   font-size: 22px;
   line-height: 1;
 }
+
 .logout-btn:hover {
   background-color: #003300;
   color: var(--primary-color);
@@ -203,6 +210,7 @@ body {
   display: none;
   margin-left: auto;
 }
+
 .header-nav a {
   color: var(--primary-color);
   text-decoration: none;
@@ -210,6 +218,7 @@ body {
   border-radius: 8px;
   transition: background-color 0.2s ease;
 }
+
 .header-nav a:hover {
   background-color: #003300;
 }
@@ -229,6 +238,7 @@ body {
   border-radius: 18px;
   line-height: 1.6;
 }
+
 .user-message {
   background-color: var(--primary-color);
   /* Align user messages to the right */
@@ -236,6 +246,7 @@ body {
   border-bottom-right-radius: 4px;
   color: var(--background-color);
 }
+
 .bot-message {
   background-color: #1a1a1a;
   /* Align bot messages to the left */
@@ -253,12 +264,15 @@ body {
   margin: 0 2px;
   animation: bounce 1.4s infinite ease-in-out both;
 }
+
 .typing-indicator span:nth-child(1) {
   animation-delay: -0.32s;
 }
+
 .typing-indicator span:nth-child(2) {
   animation-delay: -0.16s;
 }
+
 @keyframes bounce {
   0%,
   80%,
@@ -303,6 +317,7 @@ body {
   padding: 6px;
   font-family: sans-serif;
 }
+
 .chat-input textarea:focus {
   outline: none;
 }
@@ -360,6 +375,7 @@ body {
   border: 1px solid var(--border-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .team-member:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 255, 0, 0.5);
@@ -379,6 +395,7 @@ body {
   margin: 10px 0 5px 0;
   color: var(--primary-color);
 }
+
 .team-member p {
   font-size: 0.9em;
   color: var(--text-color);
@@ -454,6 +471,7 @@ body {
   font-weight: bold;
   transition: all 0.2s ease-in-out;
 }
+
 .submit-btn:hover {
   background-color: var(--text-color);
   transform: translateY(-2px);
@@ -510,6 +528,7 @@ body {
   flex: 1;
   transition: all 0.3s ease;
 }
+
 .toggle-btn.active {
   background-color: var(--primary-color);
   color: var(--background-color);
@@ -520,10 +539,12 @@ body {
   /* Hide by default */
   display: none;
 }
+
 .auth-form.active {
   /* The active form is shown */
   display: block;
 }
+
 .auth-form h1 {
   margin: 0 0 30px 0;
   font-size: 2em;
@@ -571,40 +592,50 @@ body {
     position: fixed;
     transform: translateX(-100%);
   }
+
   .sidebar.open {
     /* Slide in the sidebar */
     transform: translateX(0);
   }
+
   .menu-toggle {
     /* Show the hamburger menu icon */
     display: block;
   }
+
   .header {
     justify-content: flex-start;
   }
+
   .header-nav {
     /* Hide the header navigation on smaller screens */
     display: none;
   }
+
   .page-content {
     padding: 20px 15px;
   }
+  
   .form-container {
     padding: 20px;
     border: none;
     background-color: var(--background-color);
   }
+
   .team {
     flex-direction: column;
     align-items: center;
   }
+
   .team-member {
     width: 80%;
     max-width: 300px;
   }
+
   .auth-page {
     padding: 0;
   }
+
   .auth-box {
     flex-direction: column;
     width: 100%;
@@ -614,6 +645,7 @@ body {
     justify-content: center;
     background-color: var(--background-color);
   }
+
   .auth-forms {
     width: 100%;
     padding: 20px;
@@ -626,10 +658,12 @@ body {
     /* Hide the sidebar navigation */
     display: none;
   }
+
   .menu-toggle {
     /* Hide the hamburger menu icon */
     display: none;
   }
+
   .header-nav {
     /* Show the header navigation */
     display: flex;
@@ -649,14 +683,17 @@ body {
     align-items: center;
     text-align: center;
   }
+
   .auth-panel h2 {
     font-size: 2.5em;
     margin: 0 0 10px 0;
   }
+
   .auth-panel p {
     font-size: 1.1em;
     color: var(--text-color);
   }
+  
   .auth-forms {
     width: 55%;
     padding: 40px 50px;
