@@ -3,11 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Sets title and favicon -->
     <title>Contact Us - ClementGPT</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
+
+    <!-- Links to external stylesheets -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Sidebar -->
     <div class="app">
       <aside class="sidebar">
         <button class="new-chat" onclick="window.location.href='index.html'">
@@ -25,6 +30,7 @@
         </footer>
       </aside>
 
+      <!-- Navigation bar -->
       <main class="main">
         <header class="header">
           <button class="menu-toggle">&#x2630;</button>
@@ -36,10 +42,12 @@
           </nav>
         </header>
 
+        <!-- Main content -->
         <div class="page-content">
           <p class="page-subtitle">
             We'd love to hear from you! Send us a message.
           </p>
+          <!-- Contact Form -->
           <form id="contact-form" class="form-container" novalidate>
             <div class="form-group">
               <label for="name">Name</label>
@@ -62,6 +70,8 @@
       </main>
     </div>
     <div class="mobile-menu-overlay"></div>
+
+    <!-- Links to external scripts -->
     <script src="script.js"></script>
   </body>
 </html>

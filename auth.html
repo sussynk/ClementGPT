@@ -3,10 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Sets title and favicon -->
     <title>Authentication - ClementGPT</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
+
+    <!-- Links to external stylesheets -->
     <link rel="stylesheet" href="style.css" />
   </head>
+
+  <!-- Authentication Page -->
   <body>
     <div class="auth-page">
       <div class="auth-box">
@@ -15,12 +21,14 @@
           <p>Your AI-powered chat assistant.</p>
         </div>
 
+        <!-- Authentication Forms -->
         <div class="auth-forms">
           <div class="auth-toggle">
             <button id="show-login" class="toggle-btn active">Login</button>
             <button id="show-signup" class="toggle-btn">Sign Up</button>
           </div>
 
+          <!-- Login Form -->
           <form id="login-form" class="auth-form active" novalidate>
             <h1>Welcome Back!</h1>
             <div class="form-group">
@@ -36,6 +44,7 @@
             <button type="submit" class="submit-btn">Log In</button>
           </form>
 
+          <!-- Sign Up Form -->
           <form id="signup-form" class="auth-form" novalidate>
             <h1>Create Account</h1>
             <div class="form-group">
@@ -58,6 +67,8 @@
         </div>
       </div>
     </div>
+
+    <!-- Links to external scripts -->
     <script src="script.js"></script>
   </body>
 </html>

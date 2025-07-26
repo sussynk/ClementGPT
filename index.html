@@ -3,11 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Sets title and favicon -->
     <title>ClementGPT</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
+
+    <!-- Links to external stylesheets -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Sidebar -->
     <div class="app">
       <aside class="sidebar">
         <button class="new-chat">&#x21bb; <span>Restart Chat</span></button>
@@ -22,6 +27,7 @@
         </footer>
       </aside>
 
+      <!-- Navigation bar -->
       <main class="main">
         <header class="header">
           <button class="menu-toggle">&#x2630;</button>
@@ -33,6 +39,7 @@
           </nav>
         </header>
 
+        <!-- Main content -->
         <div id="chat-area" class="chat-area">
           <div class="message bot-message">
             <p>Hello! I'm ClementGPT. How can I help you today?</p>
@@ -51,6 +58,8 @@
       </main>
     </div>
     <div class="mobile-menu-overlay"></div>
+
+    <!-- Links to external scripts -->
     <script src="script.js"></script>
   </body>
 </html>
