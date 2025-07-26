@@ -1,3 +1,4 @@
+/* Define global colors */
 :root {
   --primary-color: #00ff00;
   --secondary-color: #004d00;
@@ -7,6 +8,7 @@
   --error-color: #ff4d4d;
 }
 
+/* General styles */
 body {
   font-family: Roboto;
   background-color: var(--background-color);
@@ -14,6 +16,7 @@ body {
   margin: 0;
 }
 
+/* Custom scrollbar styles */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -28,16 +31,19 @@ body {
   background: #006600;
 }
 
+/* Main layout styles */
 .app {
   display: flex;
   width: 100%;
   height: 100vh;
   position: relative;
+  /* Prevent horizontal scrolling */
   overflow-x: hidden;
 }
 
+/* Sidebar styles */
 .sidebar {
-  background-color: #0a0a0a;
+  background-color: var(--background-color);
   width: 250px;
   min-width: 250px;
   display: flex;
@@ -89,7 +95,9 @@ body {
   background-color: #003300;
 }
 
+/* Sidebar footer styles (Profile section) */
 .sidebar-footer {
+  /* Push footer to bottom */
   margin-top: auto;
   border-top: 1px solid var(--border-color);
   padding-top: 15px;
@@ -123,6 +131,7 @@ body {
   font-size: 0.95em;
   white-space: nowrap;
   overflow: hidden;
+  /* Adds '...' if name is too long */
   text-overflow: ellipsis;
 }
 
@@ -140,7 +149,7 @@ body {
   transition: background-color 0.2s ease;
 }
 .login-btn:hover {
-  background-color: #00cc00;
+  background-color: var(--text-color);
 }
 
 .logout-btn {
@@ -156,9 +165,10 @@ body {
 }
 .logout-btn:hover {
   background-color: #003300;
-  color: #00ff00;
+  color: var(--primary-color);
 }
 
+/* Main content styles */
 .main {
   flex-grow: 1;
   display: flex;
@@ -169,14 +179,15 @@ body {
 
 .header {
   padding: 18px;
-  background-color: #000;
+  background-color: var(--background-color);
   text-align: center;
-  border-bottom: 1px solid #00ff00;
+  border-bottom: 1px solid var(--border-color);
   box-shadow: 0 1px 5px rgba(0, 255, 0, 0.2);
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Keep header on top on scroll */
   position: sticky;
   top: 0;
 }
@@ -188,6 +199,7 @@ body {
 }
 
 .header-nav {
+  /* Hide header navigation by default, only show on larger screens */
   display: none;
   margin-left: auto;
 }
@@ -202,6 +214,7 @@ body {
   background-color: #003300;
 }
 
+/* Chat area styles */
 .chat-area {
   flex-grow: 1;
   padding: 25px;
@@ -218,16 +231,19 @@ body {
 }
 .user-message {
   background-color: var(--primary-color);
+  /* Align user messages to the right */
   align-self: flex-end;
   border-bottom-right-radius: 4px;
   color: var(--background-color);
 }
 .bot-message {
   background-color: #1a1a1a;
+  /* Align bot messages to the left */
   align-self: flex-start;
   border-bottom-left-radius: 4px;
 }
 
+/* Bot typing indicator animation */
 .typing-indicator span {
   display: inline-block;
   background-color: #009900;
@@ -254,9 +270,11 @@ body {
   }
 }
 
+/* Chat input styles */
 .chat-input-container {
   padding: 15px;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0), #000 58.85%);
+  /* Keeps chat input at the bottom */
   position: sticky;
   bottom: 0;
 }
@@ -307,6 +325,7 @@ body {
   padding-bottom: 4px;
 }
 
+/* Static page content styles (about, contact) */
 .page-content {
   flex-grow: 1;
   padding: 30px;
@@ -324,6 +343,7 @@ body {
   color: var(--text-color);
 }
 
+/* "About the Team" page styles */
 .team {
   display: flex;
   flex-wrap: wrap;
@@ -364,6 +384,7 @@ body {
   color: var(--text-color);
 }
 
+/* --- General Form Styles (Contact, Auth) --- */
 .form-container {
   max-width: 700px;
   margin: 0 auto;
@@ -405,16 +426,19 @@ body {
   box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
 }
 
+/* Error message styles */
 .form-group .error {
   color: var(--error-color);
   font-size: 0.85em;
   margin-top: 5px;
   min-height: 1em;
+  /* Hidden by default */
   display: none;
 }
 
 .form-group input.invalid,
 .form-group textarea.invalid {
+  /* Highlight invalid fields */
   border-color: var(--error-color) !important;
 }
 
@@ -435,6 +459,7 @@ body {
   transform: translateY(-2px);
 }
 
+/* Authentication page styles */
 .auth-page {
   display: flex;
   justify-content: center;
@@ -456,6 +481,7 @@ body {
 }
 
 .auth-panel {
+  /* Hide by default, only show on larger screens */
   display: none;
 }
 
@@ -491,9 +517,11 @@ body {
 }
 
 .auth-form {
+  /* Hide by default */
   display: none;
 }
 .auth-form.active {
+  /* The active form is shown */
   display: block;
 }
 .auth-form h1 {
@@ -503,7 +531,9 @@ body {
   text-align: center;
 }
 
+/* Mobile menu styles and overlay */
 .menu-toggle {
+  /* Hidden by default, only show on smaller screens */
   display: none;
   background: none;
   border: none;
@@ -533,21 +563,27 @@ body {
   opacity: 1;
 }
 
+/* Responsive Design (media queries) */
+/* For tablet and mobile devices (max-width: 768px) */
 @media (max-width: 768px) {
   .sidebar {
+    /* Allows the sidebar to slide in over content */
     position: fixed;
     transform: translateX(-100%);
   }
   .sidebar.open {
+    /* Slide in the sidebar */
     transform: translateX(0);
   }
   .menu-toggle {
+    /* Show the hamburger menu icon */
     display: block;
   }
   .header {
     justify-content: flex-start;
   }
   .header-nav {
+    /* Hide the header navigation on smaller screens */
     display: none;
   }
   .page-content {
@@ -584,18 +620,24 @@ body {
   }
 }
 
+/* For desktop devices (min-width: 769px) */
 @media (min-width: 769px) {
   .sidebar-nav {
+    /* Hide the sidebar navigation */
     display: none;
   }
   .menu-toggle {
+    /* Hide the hamburger menu icon */
     display: none;
   }
   .header-nav {
+    /* Show the header navigation */
     display: flex;
     align-items: center;
     gap: 10px;
   }
+
+  /* Authentication panel styles */
   .auth-panel {
     display: flex;
     width: 45%;
