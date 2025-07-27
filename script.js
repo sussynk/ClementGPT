@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (userMessage.includes("how are you"))
         return "I'm just a bot, but I'm doing great! Thanks for asking.";
       if (userMessage.includes("help"))
-        return "You can ask me anything! Try asking about the weather, or just chat with me.";
+        return "You can ask me anything! Try asking about the weather or just chat with me.";
       if (userMessage.includes("clement"))
         return "Clement is the leader of the team that created this chatbot.";
       if (userMessage.includes("time")) {
