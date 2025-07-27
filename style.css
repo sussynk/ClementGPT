@@ -326,7 +326,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--background-color);
+  background-color: var(--primary-color);
   border: none;
   width: 40px;
   height: 40px;
@@ -473,7 +473,7 @@ body {
 }
 
 .submit-btn:hover {
-  background-color: var(--text-color);
+  background-color: var(--primary-color);
   transform: translateY(-2px);
 }
 
@@ -512,7 +512,7 @@ body {
 .auth-toggle {
   display: flex;
   margin-bottom: 30px;
-  background-color: #000;
+  background-color: var(--background-color);
   border-radius: 8px;
   padding: 5px;
 }
