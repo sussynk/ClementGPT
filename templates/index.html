@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClementGPT</title>
+    <link rel="icon" type="image/x-icon" href="/static/assets/favicon.svg" />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="app">
+
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <button class="new-chat-btn" id="new-chat-btn">&#x2b; New Chat</button>
+        <div class="chat-list" id="chat-list"></div>
+      </aside>
+
+      <!-- Main chat area -->
+      <main class="main">
+        <header class="header">
+          <button class="menu-toggle" id="menu-toggle">&#x2630;</button>
+          <h1>ClementGPT</h1>
+        </header>
+
+        <div id="chat-area" class="chat-area">
+          <div class="message bot-message">
+            <p>Hello! I'm ClementGPT. How can I help you today?</p>
+          </div>
+        </div>
+
+        <div class="chat-input-container">
+          <div class="file-preview" id="file-preview">
+            <span id="file-name"></span>
+            <button id="remove-file" title="Remove file">&#x2715;</button>
+          </div>
+          <form id="chat-form" class="chat-input">
+            <label for="file-input" class="attach-btn" title="Attach file">&#x1f4ce;</label>
+            <input
+              type="file"
+              id="file-input"
+              accept="image/*,.pdf,.txt,.md,.js,.py,.html,.css,.json"
+            />
+            <textarea
+              id="message-input"
+              placeholder="Message ClementGPT..."
+              rows="1"
+            ></textarea>
+            <button type="submit" title="Send">&#x27a4;</button>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
