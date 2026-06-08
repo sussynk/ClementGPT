@@ -36,12 +36,17 @@ Get a free Gemini API key at https://aistudio.google.com/app/apikey
 
 ## Changelog
 
-### Phase 2 *(upcoming)*
-- Rate limiting on chat endpoint
-- Input length validation
-- XSS hardening on bot responses
+### Phase 3 *(upcoming)*
+- Secure session cookies and `SECRET_KEY` loaded from environment
 
 ---
+
+### Phase 2 — Input validation & rate limiting
+- Added rate limiting: 30 requests/min per IP on the chat endpoint
+- Enforced 4000 character max on incoming messages — oversized input is rejected server-side
+- Hardened system prompt to resist prompt injection and jailbreak attempts
+- Bot responses are HTML-escaped before rendering — patched reflected XSS vector
+- File uploads validated against allowed MIME type list and 10 MB size cap
 
 ### Phase 1 — Security hardening
 - Added startup validation: app now exits immediately if `GEMINI_API_KEY` is missing or invalid
