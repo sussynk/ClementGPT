@@ -6,6 +6,7 @@ from flask_limiter.util import get_remote_address
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+from config import DevelopmentConfig, ProductionConfig
 
 load_dotenv()
 
@@ -18,7 +19,19 @@ if not api_key:
         "Get one free at: https://aistudio.google.com/app/apikey\n"
     )
 
+# Phase 3 — fail fast if SECRET_KEY is missing
+if not os.getenv('SECRET_KEY'):
+    raise SystemExit(
+        "\n[ERROR] SECRET_KEY is not set.\n"
+        "Add a long random string to your .env file.\n"
+        "Generate one with: python -c \"import secrets; print(secrets.token_hex(32))\"\n"
+    )
+
 app = Flask(__name__)
+
+# Phase 3 — load config based on environment (default: development)
+env = os.getenv('FLASK_ENV', 'development')
+app.config.from_object(ProductionConfig if env == 'production' else DevelopmentConfig)
 
 client = genai.Client()
 
@@ -104,6 +117,10 @@ def get_chats():
 @app.route('/api/chats', methods=['POST'])
 def new_chat():
     sid, data = _get_or_create_session()
+    # Phase 3 — cap chats per session to prevent unbounded memory growth
+    max_chats = app.config.get('MAX_CHATS_PER_SESSION', 20)
+    if len(data['chats']) >= max_chats:
+        return jsonify({'error': f'Max {max_chats} chats per session reached. Delete one first.'}), 400
     chat_id = str(uuid.uuid4())
     data['chats'][chat_id] = {'title': 'New Chat', 'messages': []}
     data['active_chat_id'] = chat_id

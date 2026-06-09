@@ -36,10 +36,16 @@ Get a free Gemini API key at https://aistudio.google.com/app/apikey
 
 ## Changelog
 
-### Phase 3 *(upcoming)*
-- Secure session cookies and `SECRET_KEY` loaded from environment
+### Phase 4 *(upcoming)*
+- GitHub Actions CI/CD pipeline with SAST and dependency CVE audit
 
 ---
+
+### Phase 3 — Session security
+- Added `SECRET_KEY` loaded from `.env` — app exits at startup if missing
+- Added `config.py` with `DevelopmentConfig` and `ProductionConfig` — environment-aware settings
+- Session cookies set with `httponly=True` and `samesite=Lax` — blocks XSS-based session theft and CSRF
+- Capped chats per session at 20 — prevents unbounded server memory growth
 
 ### Phase 2 — Input validation & rate limiting
 - Added rate limiting: 30 requests/min per IP on the chat endpoint
