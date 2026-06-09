@@ -8,3 +8,6 @@ detect-secrets>=1.4.0
 
 # Phase 2 — rate limiting
 flask-limiter>=3.0.0
+
+# Phase 4 — user-supplied API key support (OpenAI-compatible client)
+openai>=1.0.0

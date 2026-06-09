@@ -21,6 +21,7 @@
         <header class="header">
           <button class="menu-toggle" id="menu-toggle">&#x2630;</button>
           <h1>ClementGPT</h1>
+          <button class="settings-btn" id="settings-btn" title="Settings">&#x2699;</button>
         </header>
 
         <div id="chat-area" class="chat-area">
@@ -53,6 +54,57 @@
     </div>
 
     <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settings-overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>&#x2699; Settings</h2>
+          <button class="modal-close" id="settings-close">&#x2715;</button>
+        </div>
+        <div class="modal-body">
+
+          <div class="setting-group">
+            <label for="setting-provider">Provider</label>
+            <select id="setting-provider">
+              <option value="gemini">Gemini (Google)</option>
+              <option value="openrouter">OpenRouter</option>
+            </select>
+          </div>
+
+          <div class="setting-group">
+            <label for="setting-apikey">
+              API Key
+              <span class="label-hint">(stored locally, never sent to our server)</span>
+            </label>
+            <input
+              type="password"
+              id="setting-apikey"
+              placeholder="Leave blank to use the server default key"
+            />
+          </div>
+
+          <div class="setting-group">
+            <label for="setting-model">Model</label>
+            <input
+              type="text"
+              id="setting-model"
+              placeholder="e.g. gemini-2.5-flash"
+            />
+          </div>
+
+          <div class="model-suggestions" id="model-suggestions"></div>
+
+          <p class="setting-note" id="active-key-note"></p>
+        </div>
+
+        <div class="modal-footer">
+          <button id="settings-clear" class="clear-btn">&#x21ba; Reset to Default</button>
+          <button id="settings-save" class="save-btn">Save</button>
+        </div>
+      </div>
+    </div>
+
     <script src="/static/script.js"></script>
   </body>
 </html>
