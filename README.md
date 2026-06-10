@@ -1,33 +1,24 @@
 # ClementGPT
 
-A terminal-aesthetic chatbot powered by **Gemini 2.5 Flash** (free tier). Supports multiple concurrent chats and file uploads (images, PDFs, text files).
-
-Built as a personal **DevSecOps learning project** — each git phase introduces a real vulnerability class and then fixes it.
+A chatbot powered by **Gemini 2.5 Flash**. Supports multiple chat sessions and file uploads (images, PDFs, text files).
 
 ---
 
 ## Quick start
 
 ```bash
-# 1. Clone
 git clone https://github.com/sussynk/ClementGPT.git
 cd ClementGPT
 
-# 2. Create virtual environment
 python -m venv venv
-venv\Scripts\activate        # Windows
-# source venv/bin/activate   # Mac/Linux
+venv\Scripts\activate
 
-# 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Set your API key
 cp .env.example .env
-# Edit .env and add your GEMINI_API_KEY
+# Add your GEMINI_API_KEY to .env
 
-# 5. Run
-flask run
-# Open http://127.0.0.1:5000
+python app.py
 ```
 
 Get a free Gemini API key at https://aistudio.google.com/app/apikey
@@ -36,44 +27,47 @@ Get a free Gemini API key at https://aistudio.google.com/app/apikey
 
 ## Features
 
-- Multiple independent chat sessions with persistent history
-- File upload support: images, PDFs, plain text, code files
-- Hacker-green terminal aesthetic
+- Multiple independent chat sessions
+- File upload support — images, PDFs, plain text, code files
+- Markdown rendering in bot responses
 - Mobile responsive
 
 ---
 
-## DevSecOps learning phases
+## Changelog
 
-| Phase | Topic | Status |
-|-------|-------|--------|
-| 0 | Core app — multi-chat, file upload | ✅ |
-| 1 | Secrets management & pre-commit hooks | ✅ |
-| 2 | Input validation, rate limiting, XSS hardening | 🔜 |
-| 3 | Session security & secure cookie flags | 🔜 |
-| 4 | CI/CD — GitHub Actions SAST + dependency audit | 🔜 |
-| 5 | Production hardening — gunicorn, config split | 🔜 |
+### Phase 5 — Production hardening
+- Added `gunicorn` as the production WSGI server — replaces Flask dev server
+- `debug` mode now driven by `FLASK_ENV` env var, not hardcoded
+- `HOST` and `PORT` configurable via environment variables
+- Added `Procfile` for one-command deploy to Render or Railway
 
-Each phase is a separate set of commits. The git log is the learning trail.
+### Phase 4 — User API key settings + CI/CD pipeline
+- Settings modal (⚙) — enter your own API key, pick Gemini or OpenRouter, choose model
+- Key stored in `localStorage` only — never saved server-side
+- GitHub Actions pipeline runs on every push: Bandit (SAST) + pip-audit (CVE scan)
 
----
+### Phase 3 — Session security
+- Added `SECRET_KEY` loaded from `.env` — app exits at startup if missing
+- Added `config.py` with `DevelopmentConfig` and `ProductionConfig` — environment-aware settings
+- Session cookies set with `httponly=True` and `samesite=Lax` — blocks XSS-based session theft and CSRF
+- Capped chats per session at 20 — prevents unbounded server memory growth
 
-## Phase 1 — Secrets management
+### Phase 2 — Input validation & rate limiting
+- Added rate limiting: 30 requests/min per IP on the chat endpoint
+- Enforced 4000 character max on incoming messages — oversized input is rejected server-side
+- Hardened system prompt to resist prompt injection and jailbreak attempts
+- Bot responses are HTML-escaped before rendering — patched reflected XSS vector
+- File uploads validated against allowed MIME type list and 10 MB size cap
 
-**Vulnerability:** accidentally committing `.env` (your real API key) to git. Once pushed, a key is compromised — bots scrape GitHub for them within seconds.
+### Phase 1 — Security hardening
+- Added startup validation: app now exits immediately if `GEMINI_API_KEY` is missing or invalid
+- Added `detect-secrets` pre-commit hook to block accidental credential commits
+- Patched silent failure on bad API key — error is now surfaced at launch, not mid-request
 
-**What's in place:**
-- `.env` is in `.gitignore` — it will never be staged
-- `app.py` exits immediately at startup with a clear message if `GEMINI_API_KEY` is missing
-- `.pre-commit-config.yaml` uses `detect-secrets` to scan every commit for leaked credentials
-
-**Activate the pre-commit hook (one-time setup):**
-```bash
-pip install pre-commit detect-secrets
-detect-secrets scan > .secrets.baseline   # create baseline of known non-secrets
-pre-commit install                        # wire the hook into git
-```
-
-After this, every `git commit` will be scanned. If a secret is detected, the commit is blocked.
-
-**If your key leaks:** rotate it immediately at https://aistudio.google.com/app/apikey — don't just delete the commit, because it lives in git history.
+### Phase 0 — Rewrite
+- Migrated from single-session to multi-chat with per-browser session isolation
+- Added file upload support (images, PDFs, text files, code files)
+- Rebuilt frontend with sidebar chat list, attach button, and markdown rendering
+- Removed auth pages — straight to the chatbot
+- Added `.gitignore`, `.env.example`, `requirements.txt`

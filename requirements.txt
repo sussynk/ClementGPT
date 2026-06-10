@@ -5,3 +5,12 @@ google-genai>=1.0.0
 # Phase 1 — secret scanning pre-commit hooks
 pre-commit>=3.0.0
 detect-secrets>=1.4.0
+
+# Phase 2 — rate limiting
+flask-limiter>=3.0.0
+
+# Phase 4 — user-supplied API key support (OpenAI-compatible client)
+openai>=1.0.0
+
+# Phase 5 — production WSGI server
+gunicorn>=21.0.0
