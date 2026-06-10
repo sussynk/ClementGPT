@@ -11,3 +11,6 @@ flask-limiter>=3.0.0
 
 # Phase 4 — user-supplied API key support (OpenAI-compatible client)
 openai>=1.0.0
+
+# Phase 5 — production WSGI server
+gunicorn>=21.0.0

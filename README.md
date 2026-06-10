@@ -36,10 +36,16 @@ Get a free Gemini API key at https://aistudio.google.com/app/apikey
 
 ## Changelog
 
-### Phase 4 *(upcoming)*
-- GitHub Actions CI/CD pipeline with SAST and dependency CVE audit
+### Phase 5 — Production hardening
+- Added `gunicorn` as the production WSGI server — replaces Flask dev server
+- `debug` mode now driven by `FLASK_ENV` env var, not hardcoded
+- `HOST` and `PORT` configurable via environment variables
+- Added `Procfile` for one-command deploy to Render or Railway
 
----
+### Phase 4 — User API key settings + CI/CD pipeline
+- Settings modal (⚙) — enter your own API key, pick Gemini or OpenRouter, choose model
+- Key stored in `localStorage` only — never saved server-side
+- GitHub Actions pipeline runs on every push: Bandit (SAST) + pip-audit (CVE scan)
 
 ### Phase 3 — Session security
 - Added `SECRET_KEY` loaded from `.env` — app exits at startup if missing

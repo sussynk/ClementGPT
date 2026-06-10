@@ -296,4 +296,11 @@ def chat():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Phase 5 — debug mode is driven by config, not hardcoded
+    # Development: FLASK_ENV=development (default) → debug=True
+    # Production:  FLASK_ENV=production             → debug=False
+    app.run(
+        host=os.getenv('HOST', '127.0.0.1'),
+        port=int(os.getenv('PORT', 5000)),
+        debug=app.config.get('DEBUG', False),
+    )

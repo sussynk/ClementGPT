@@ -75,13 +75,20 @@ The group assignment shell was stripped and rebuilt as a real, solo-owned chatbo
 | XSS | Unprotected | HTML escaped before render |
 | Prompt injection | One-liner system prompt | Hardened system prompt |
 | Secret scanning | None | detect-secrets pre-commit hook |
+| Session security | None | SECRET_KEY, httponly + samesite cookies, chat cap |
+| Custom API key | Hardcoded server key only | User can bring own key (Gemini/OpenRouter) via settings modal |
+| CI/CD pipeline | None | GitHub Actions — Bandit SAST + pip-audit on every push |
+| WSGI server | Flask dev server (debug=True) | gunicorn, env-driven debug flag, Procfile |
 
 ---
 
-## Phases still ahead
+## All phases complete ✅
 
-| Phase | Topic |
-|-------|-------|
-| 3 | Session security — `SECRET_KEY` from env, secure cookie flags |
-| 4 | CI/CD — GitHub Actions SAST + dependency CVE audit |
-| 5 | Production hardening — gunicorn, split config, deployment |
+| Phase | Topic | Status |
+|-------|-------|--------|
+| 0 | Core rewrite — multi-chat, file upload | ✅ |
+| 1 | Secrets management | ✅ |
+| 2 | Input validation, rate limiting, XSS | ✅ |
+| 3 | Session security | ✅ |
+| 4 | User API key settings + GitHub Actions CI/CD | ✅ |
+| 5 | Production hardening | ✅ |
